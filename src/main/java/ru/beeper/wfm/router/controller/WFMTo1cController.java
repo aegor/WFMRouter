@@ -14,17 +14,11 @@ import ru.beeper.wfm.router.service.To1c;
 public class WFMTo1cController {
 
     To1c service;
-    Servers props;
+    Servers servers;
 
-    WFMTo1cController(To1c service, Servers props){
+    WFMTo1cController(To1c service, Servers servers){
         this.service = service;
-        this.props = props;
-    }
-    // Тут произойдёт одно из двух исключений: либо поля org в JSON вообще нет, либо его значение не совпадает со значением, указанным в конфигурации
-    // Возможно ещё одно исключение при сериализации объекта, если имя поля org не совпадёт с именем, указанным в конфигурации в onec.org.prefix
-    void validate(BaseRest obj){
-/*        if((obj.org != props.orgNameIk) || (obj.org != props.orgNameKt))
-            throw new IllegalArgumentException(String.format("Invalid org value, %s != %s", obj.org, props.orgPrefix))*/;
+        this.servers = servers;
     }
 
 
@@ -33,7 +27,7 @@ public class WFMTo1cController {
     @PostMapping("/PlanCreateOrUpdate")
     public String planCreateOrUpdate
         (@RequestBody PlanCreateOrUpdate planCreateOrUpdate) {
-        validate(planCreateOrUpdate);
+        service.planCreateOrUpdate(planCreateOrUpdate);
         return "";
     };
 

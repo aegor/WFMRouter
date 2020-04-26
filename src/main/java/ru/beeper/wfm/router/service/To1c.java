@@ -11,17 +11,18 @@ import ru.beeper.wfm.router.model.onec.PlanDelete;
 import ru.beeper.wfm.router.model.onec.TimeSheetCreateOrUpdate;
 
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 
 @Service
 @RequestScope
 public class To1c {
 
-    Servers props;
+    Servers servers;
     RestTemplate http;
 
-    public To1c(Servers properties, RestTemplate http){
-        this.props = properties;
+    public To1c(Servers servers, RestTemplate http){
+        this.servers = servers;
         this.http = http;
     }
 
@@ -35,15 +36,18 @@ public class To1c {
         }};
     }
 
-    void planCreateOrUpdate(PlanCreateOrUpdate obj){
 
+
+    public void planCreateOrUpdate(PlanCreateOrUpdate obj){
+        HashMap<String,String> server = servers.getServerByEmployeeSourceId(obj.getEmployeeSourceId());
+        System.out.println();
 //        http.exchange
 //                (uri, HttpMethod.POST, new HttpEntity<String>(getCredentials(props.login, password)), obj);
     };
-    void planDelete(PlanDelete obj){
+    public void planDelete(PlanDelete obj){
 
     };
-    void timesheetCreateOrUpdate(TimeSheetCreateOrUpdate obj){
+    public void timesheetCreateOrUpdate(TimeSheetCreateOrUpdate obj){
 
     };
 

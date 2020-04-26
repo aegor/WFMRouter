@@ -2,7 +2,7 @@ server:
   # Порт wfm-маршрутизатора (по умолчанию 8080)
   port: 8080
 
-
+debug: true
 
 # 1c ZUP servers
 zup:
