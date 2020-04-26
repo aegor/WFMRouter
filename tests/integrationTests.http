@@ -1,0 +1,18 @@
+POST http://localhost:8080/PlanCreateOrUpdate
+Content-Type: application/json
+
+{
+  "RequestId":239603,
+  "EmployeeId1C": "49bda21f-df49-11e9-90a5-00155d306a3d",
+  "EmployeeSourceId": 4,
+  "Year": 2019,
+  "Month": 9,
+  "Plan": [
+    {"Day": 1,"Minutes": 0,"NightMinutes": 0},
+  {"Day": 2,"Minutes": 330,"NightMinutes": 120},
+  {"Day": 29,"Minutes": 0,"NightMinutes": 0},
+  {"Day":30,"Minutes": 240,"NightMinutes": 0}
+  ]
+}
+
+###
