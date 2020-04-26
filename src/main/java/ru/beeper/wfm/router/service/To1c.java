@@ -39,7 +39,7 @@ public class To1c {
 
 
     public void planCreateOrUpdate(PlanCreateOrUpdate obj){
-        HashMap<String,String> server = servers.getServerByEmployeeSourceId(obj.getEmployeeSourceId());
+        HashMap<String,String> server = servers.getServerByEmployeeSourceId(obj.EmployeeSourceId);
         System.out.println();
 //        http.exchange
 //                (uri, HttpMethod.POST, new HttpEntity<String>(getCredentials(props.login, password)), obj);
