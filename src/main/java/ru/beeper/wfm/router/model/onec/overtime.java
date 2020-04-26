@@ -1,12 +1,32 @@
 package ru.beeper.wfm.router.model.onec;
 
-import lombok.*;
-
 import java.io.Serializable;
 
-@NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
-@AllArgsConstructor
 public class overtime implements Serializable {
-    @Getter @Setter private int Minutes;
-    @Getter @Setter private int NightMinutes;
+    private int Minutes;
+    private int NightMinutes;
+
+    public int getMinutes() {
+        return Minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        Minutes = minutes;
+    }
+
+    public int getNightMinutes() {
+        return NightMinutes;
+    }
+
+    public void setNightMinutes(int nightMinutes) {
+        NightMinutes = nightMinutes;
+    }
+
+    public overtime(int minutes, int nightMinutes) {
+        Minutes = minutes;
+        NightMinutes = nightMinutes;
+    }
+
+    public overtime() {
+    }
 }

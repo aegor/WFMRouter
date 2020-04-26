@@ -1,15 +1,33 @@
 package ru.beeper.wfm.router.model.onec;
 
-import lombok.*;
-
 import java.io.Serializable;
 import java.util.List;
-import java.util.UUID;
 
-@NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
-@AllArgsConstructor
 public class TimeSheetCreateOrUpdate extends BaseRest implements Serializable {
 
-    @Getter @Setter private List<timesheet> Timesheet;
-    @Getter @Setter private overtime OverTime;
+    private List<timesheet> Timesheet;
+    private overtime OverTime;
+
+    public List<timesheet> getTimesheet() {
+        return Timesheet;
+    }
+
+    public void setTimesheet(List<timesheet> timesheet) {
+        Timesheet = timesheet;
+    }
+
+    public overtime getOverTime() {
+        return OverTime;
+    }
+
+    public void setOverTime(overtime overTime) {
+        OverTime = overTime;
+    }
+
+    public TimeSheetCreateOrUpdate(int requestId, String employeeId1C, int employeeSourceId, int year, int month) {
+        super(requestId, employeeId1C, employeeSourceId, year, month);
+    }
+
+    public TimeSheetCreateOrUpdate() {
+    }
 }
