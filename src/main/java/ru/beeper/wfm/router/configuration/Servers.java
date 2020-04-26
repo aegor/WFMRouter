@@ -12,7 +12,7 @@ import java.util.HashMap;
 @ConfigurationProperties(prefix="zup")
 public class Servers {
 
-      HashMap<Integer, HashMap<String, String>> serverMap = new HashMap<>();
+      private HashMap<Integer, HashMap<String, String>> serverMap = new HashMap<>();
 
       @Getter @Setter private ArrayList<HashMap<String, String>> servers = new ArrayList<>();
 

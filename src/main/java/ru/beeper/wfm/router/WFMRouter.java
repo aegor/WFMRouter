@@ -22,8 +22,9 @@ public class WFMRouter {
 	}
 
 	@Bean
-	public CommandLineRunner run(RestTemplate restTemplate, Servers props) throws Exception {
-		System.out.println("running");
+	public CommandLineRunner run() throws Exception {
+		// Egor Simple stub to run commands after context initialization, but before starting servlet container
+		// I likes that
 		return args -> {
 
 		};

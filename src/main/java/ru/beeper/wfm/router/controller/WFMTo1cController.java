@@ -3,7 +3,6 @@ package ru.beeper.wfm.router.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.beeper.wfm.router.configuration.Servers;
-import ru.beeper.wfm.router.model.onec.BaseRest;
 import ru.beeper.wfm.router.model.onec.PlanCreateOrUpdate;
 import ru.beeper.wfm.router.model.onec.PlanDelete;
 import ru.beeper.wfm.router.model.onec.TimeSheetCreateOrUpdate;
@@ -23,7 +22,8 @@ public class WFMTo1cController {
     }
 
 
-//    authenticator // basic auth
+//  TODO  authenticator basic auth
+
 
     @PostMapping("/PlanCreateOrUpdate")
     public ResponseEntity<PlanCreateOrUpdate> planCreateOrUpdate
@@ -32,6 +32,7 @@ public class WFMTo1cController {
         return response;
     };
 
+
     @PostMapping("/PlanDelete")
     public ResponseEntity<PlanDelete> planDelete
         (@RequestBody PlanDelete planDelete) {
@@ -39,13 +40,11 @@ public class WFMTo1cController {
         return response;
     }
 
+
     @PostMapping("/TimeSheetCreateOrUpdate")
     public ResponseEntity<TimeSheetCreateOrUpdate> timeSheetCreateOrUpdate
         (@RequestBody TimeSheetCreateOrUpdate timeSheetCreateOrUpdate) {
         ResponseEntity<TimeSheetCreateOrUpdate> response = service.timeSheetCreateOrUpdate(timeSheetCreateOrUpdate);
         return response;
     }
-
-
-
 }

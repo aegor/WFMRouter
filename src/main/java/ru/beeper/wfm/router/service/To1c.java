@@ -3,7 +3,6 @@ package ru.beeper.wfm.router.service;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.annotation.RequestScope;
 import ru.beeper.wfm.router.configuration.Servers;
@@ -14,9 +13,6 @@ import ru.beeper.wfm.router.model.onec.TimeSheetCreateOrUpdate;
 
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-
-import static org.springframework.http.ResponseEntity.badRequest;
-
 
 @Service
 @RequestScope
@@ -42,52 +38,43 @@ public class To1c {
 
     public boolean serverConfigVerificator(BaseRest obj){
         HashMap<String,String> server = servers.getServerByEmployeeSourceId(obj.EmployeeSourceId);
-        if (server == null || server.get("url") == null || server.get("login") == null || server.get("password") == null) {
-            // TODO feedback to http response, submitted by Alexander Ubiyvovk
-            // ("Мы не нашли сервера с EmployeeSourceId = %s", obj.EmployeeSourceId)
-        return false;
-        }
-        else return true;
+        // TODO feedback to http response, submitted by Alexander Ubiyvovk
+        // ("Мы не нашли сервера с EmployeeSourceId = %s", obj.EmployeeSourceId)
+        return server != null && server.get("url") != null && server.get("login") != null && server.get("password") != null;
     }
+
 
     public ResponseEntity<PlanCreateOrUpdate> planCreateOrUpdate(PlanCreateOrUpdate obj){
 
         HashMap<String,String> server = servers.getServerByEmployeeSourceId(obj.EmployeeSourceId);
-        if (serverConfigVerificator(obj)) {
+        if (!serverConfigVerificator(obj)) {
+            return new ResponseEntity<PlanCreateOrUpdate>(HttpStatus.NOT_FOUND);
+        } else {
             HttpEntity<PlanCreateOrUpdate> request =
                     new HttpEntity<PlanCreateOrUpdate>(obj, getCredentials(server.get("login"), server.get("password")));
-            ResponseEntity<PlanCreateOrUpdate> response = http.exchange(server.get("url"), HttpMethod.POST, request, PlanCreateOrUpdate.class);
-            return response;
+            return http.exchange(server.get("url"), HttpMethod.POST, request, PlanCreateOrUpdate.class);
         }
-        else {
-            return new ResponseEntity<PlanCreateOrUpdate>(HttpStatus.NOT_FOUND);
-        }
-    };
+    }
+
+
     public ResponseEntity<PlanDelete> planDelete(PlanDelete obj){
         HashMap<String,String> server = servers.getServerByEmployeeSourceId(obj.EmployeeSourceId);
         if (serverConfigVerificator(obj)) {
             HttpEntity<PlanDelete> request =
                     new HttpEntity<PlanDelete>(obj, getCredentials(server.get("login"), server.get("password")));
-            ResponseEntity<PlanDelete> response = http.exchange(server.get("url"), HttpMethod.POST, request, PlanDelete.class);
-            return response;
+            return http.exchange(server.get("url"), HttpMethod.POST, request, PlanDelete.class);
         }
-        else {
-            return new ResponseEntity<PlanDelete>(HttpStatus.NOT_FOUND);
-        }
+        else return new ResponseEntity<PlanDelete>(HttpStatus.NOT_FOUND);
+    }
 
-    };
+
     public ResponseEntity<TimeSheetCreateOrUpdate> timeSheetCreateOrUpdate(TimeSheetCreateOrUpdate obj){
         HashMap<String,String> server = servers.getServerByEmployeeSourceId(obj.EmployeeSourceId);
         if (serverConfigVerificator(obj)) {
             HttpEntity<TimeSheetCreateOrUpdate> request =
                     new HttpEntity<TimeSheetCreateOrUpdate>(obj, getCredentials(server.get("login"), server.get("password")));
-            ResponseEntity<TimeSheetCreateOrUpdate> response = http.exchange(server.get("url"), HttpMethod.POST, request, TimeSheetCreateOrUpdate.class);
-            return response;
+            return http.exchange(server.get("url"), HttpMethod.POST, request, TimeSheetCreateOrUpdate.class);
         }
-        else {
-            return new ResponseEntity<TimeSheetCreateOrUpdate>(HttpStatus.NOT_FOUND);
-        }
-    };
-
-
+        else return new ResponseEntity<TimeSheetCreateOrUpdate>(HttpStatus.NOT_FOUND);
+    }
 }

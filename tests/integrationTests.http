@@ -1,3 +1,4 @@
+### PlanCreateOrUpdate KT
 POST http://localhost:8080/PlanCreateOrUpdate
 Content-Type: application/json
 
@@ -15,4 +16,109 @@ Content-Type: application/json
   ]
 }
 
-###
+### PlanCreateOrUpdate IK
+POST http://localhost:8080/PlanCreateOrUpdate
+Content-Type: application/json
+
+{
+  "RequestId":239603,
+  "EmployeeId1C": "49bda21f-df49-11e9-90a5-00155d306a3d",
+  "EmployeeSourceId": 1,
+  "Year": 2019,
+  "Month": 9,
+  "Plan": [
+    {"Day": 1,"Minutes": 0,"NightMinutes": 0},
+    {"Day": 2,"Minutes": 330,"NightMinutes": 120},
+    {"Day": 29,"Minutes": 0,"NightMinutes": 0},
+    {"Day":30,"Minutes": 240,"NightMinutes": 0}
+  ]
+}
+
+### PlanDelete IK
+POST http://localhost:8080/PlanDelete
+Content-Type: application/json
+
+{
+  "RequestId":239603,
+  "EmployeeId1C": "49bda21f-df49-11e9-90a5-00155d306a3d",
+  "EmployeeSourceId": 1,
+  "Year": 2019,
+  "Month": 9
+}
+
+### PlanDelete KT
+POST http://localhost:8080/PlanDelete
+Content-Type: application/json
+
+{
+  "RequestId":239603,
+  "EmployeeId1C": "49bda21f-df49-11e9-90a5-00155d306a3d",
+  "EmployeeSourceId": 6,
+  "Year": 2019,
+  "Month": 9
+}
+
+### TimeSheetCreateOrUpdate KT
+POST http://localhost:8080/TimeSheetCreateOrUpdate
+Content-Type: application/json
+
+{
+  "RequestId":239603,
+  "EmployeeId1C": "49bda21f-df49-11e9-90a5-00155d306a3d",
+  "EmployeeSourceId": 6,
+  "Year": 2019,
+  "Month": 9,
+  "Timesheet":
+[{"TimePinTypeId":"26","Day":1,"Minutes":0,"NightMinutes":0},
+  {"TimePinTypeId":"26","Day":2,"Minutes":0,"NightMinutes":0},
+  {"TimePinTypeId":"01","Day":3,"Minutes":60,"NightMinutes":0},
+  {"TimePinTypeId":"01","Day":4,"Minutes":60,"NightMinutes":0},
+  {"TimePinTypeId":"01","Day":22,"Minutes":279,"NightMinutes":39},
+  {"TimePinTypeId":"01","Day":23,"Minutes":563,"NightMinutes":45},
+  {"TimePinTypeId":"26","Day":29,"Minutes":0,"NightMinutes":0},
+  {"TimePinTypeId":"26","Day":30,"Minutes":0,"NightMinutes":0}],
+  "OverTime":{"Minutes":0,"NightMinutes":0}
+  }
+
+### TimeSheetCreateOrUpdate IK
+POST http://localhost:8080/TimeSheetCreateOrUpdate
+Content-Type: application/json
+
+{
+  "RequestId":239603,
+  "EmployeeId1C": "49bda21f-df49-11e9-90a5-00155d306a3d",
+  "EmployeeSourceId": 1,
+  "Year": 2019,
+  "Month": 9,
+  "Timesheet":
+  [{"TimePinTypeId":"26","Day":1,"Minutes":0,"NightMinutes":0},
+    {"TimePinTypeId":"26","Day":2,"Minutes":0,"NightMinutes":0},
+    {"TimePinTypeId":"01","Day":3,"Minutes":60,"NightMinutes":0},
+    {"TimePinTypeId":"01","Day":4,"Minutes":60,"NightMinutes":0},
+    {"TimePinTypeId":"01","Day":22,"Minutes":279,"NightMinutes":39},
+    {"TimePinTypeId":"01","Day":23,"Minutes":563,"NightMinutes":45},
+    {"TimePinTypeId":"26","Day":29,"Minutes":0,"NightMinutes":0},
+    {"TimePinTypeId":"26","Day":30,"Minutes":0,"NightMinutes":0}],
+  "OverTime":{"Minutes":0,"NightMinutes":0}
+}
+### Error request
+POST http://localhost:8080/TimeSheetCreateOrUpdate
+Content-Type: application/json
+
+{
+  "RequestId":239603,
+  "EmployeeId1C": "49bda21f-df49-11e9-90a5-00155d306a3d",
+  "EmployeeSourceId": 4,
+  "Year": 2019,
+  "Month": 9,
+  "Timesheet":
+  [{"TimePinTypeId":"26","Day":1,"Minutes":0,"NightMinutes":0},
+    {"TimePinTypeId":"26","Day":2,"Minutes":0,"NightMinutes":0},
+    {"TimePinTypeId":"01","Day":3,"Minutes":60,"NightMinutes":0},
+    {"TimePinTypeId":"01","Day":4,"Minutes":60,"NightMinutes":0},
+    {"TimePinTypeId":"01","Day":22,"Minutes":279,"NightMinutes":39},
+    {"TimePinTypeId":"01","Day":23,"Minutes":563,"NightMinutes":45},
+    {"TimePinTypeId":"26","Day":29,"Minutes":0,"NightMinutes":0},
+    {"TimePinTypeId":"26","Day":30,"Minutes":0,"NightMinutes":0}],
+  "OverTime":{"Minutes":0,"NightMinutes":0}
+}
