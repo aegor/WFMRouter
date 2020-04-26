@@ -1,5 +1,6 @@
 package ru.beeper.wfm.router.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.beeper.wfm.router.configuration.Servers;
 import ru.beeper.wfm.router.model.onec.BaseRest;
@@ -25,22 +26,24 @@ public class WFMTo1cController {
 //    authenticator // basic auth
 
     @PostMapping("/PlanCreateOrUpdate")
-    public String planCreateOrUpdate
+    public ResponseEntity<PlanCreateOrUpdate> planCreateOrUpdate
         (@RequestBody PlanCreateOrUpdate planCreateOrUpdate) {
-        service.planCreateOrUpdate(planCreateOrUpdate);
-        return "";
+        ResponseEntity<PlanCreateOrUpdate> response = service.planCreateOrUpdate(planCreateOrUpdate);
+        return response;
     };
 
     @PostMapping("/PlanDelete")
-    public String planDelete
+    public ResponseEntity<PlanDelete> planDelete
         (@RequestBody PlanDelete planDelete) {
-        return "";
+        ResponseEntity<PlanDelete> response = service.planDelete(planDelete);
+        return response;
     }
 
     @PostMapping("/TimeSheetCreateOrUpdate")
-    public String timeSheetCreateOrUpdate
+    public ResponseEntity<TimeSheetCreateOrUpdate> timeSheetCreateOrUpdate
         (@RequestBody TimeSheetCreateOrUpdate timeSheetCreateOrUpdate) {
-        return "";
+        ResponseEntity<TimeSheetCreateOrUpdate> response = service.timeSheetCreateOrUpdate(timeSheetCreateOrUpdate);
+        return response;
     }
 
 

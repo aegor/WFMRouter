@@ -22,11 +22,6 @@ public class WFMRouter {
 	}
 
 	@Bean
-	public RestTemplate restTemplate(RestTemplateBuilder builder) {
-		return builder.build();
-	}
-
-	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate, Servers props) throws Exception {
 		System.out.println("running");
 		return args -> {

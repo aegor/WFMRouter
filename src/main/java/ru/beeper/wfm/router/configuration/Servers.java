@@ -19,6 +19,7 @@ public class Servers {
       @Getter @Setter private HashMap<String, Integer> employeeSourceId = new HashMap<>();
 
       @PostConstruct private void cachingData(){
+            // TODO config validation
             servers.forEach(s -> serverMap.put(employeeSourceId.get(s.get("employee-source-id")), s));
       }
 

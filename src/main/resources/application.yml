@@ -14,11 +14,11 @@ zup:
     "[ktEmployee]": 5
     "[ktZup]": 6
   servers:
-    - url: http://127.0.0.1/zup_kt/hs/wfm1
+    - url: http://127.0.0.1:8090/zup_kt/hs/wfm1
       login: wfm
       password: none
       employee-source-id: ktZup
-    - url: http://127.0.0.1/zup_ik/hs/wfm1
+    - url: http://127.0.0.1:8090/zup_ik/hs/wfm1
       login: wfm
       password: none
       employee-source-id: ikZup
