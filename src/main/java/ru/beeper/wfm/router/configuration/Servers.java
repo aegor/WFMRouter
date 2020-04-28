@@ -9,28 +9,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.http.HttpHeaders;
+import ru.beeper.wfm.router.util.Auth;
 import ru.beeper.wfm.router.util.BasicAuth;
 
 @ConfigurationProperties(prefix="zup")
 public class Servers {
 
-      BasicAuth auth = new BasicAuth();
+      Auth auth = new BasicAuth();
 
       private HashMap<Integer, HashMap<String, String>> serverMap = new HashMap<>();
-      private HashMap<String, HttpHeaders> credentials = new HashMap<>();
+      private HashMap<Integer, HttpHeaders> credentials = new HashMap<>();
 
       @Getter @Setter private ArrayList<HashMap<String, String>> servers = new ArrayList<>();
 
       @Getter @Setter private HashMap<String, Integer> employeeSourceId = new HashMap<>();
 
-      @PostConstruct private void cachingData(){
+      @PostConstruct private void cachingVerifyingData(){
             // TODO config validation
             servers.forEach(s -> {
                   int index = employeeSourceId.get(s.get("employee-source-id"));
-                  credentials.put("credentials", auth.makeCredentials(s.get("login"), s.get("password")));
+                  credentials.put(index, auth.makeCredentials(s.get("login"), s.get("password")));
                   serverMap.put(index, s);
             });
-
       }
 
       public HashMap<String, String> getServerByEmployeeSourceId(int id){

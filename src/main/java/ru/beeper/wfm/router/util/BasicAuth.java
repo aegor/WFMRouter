@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 
-public class BasicAuth {
+public class BasicAuth implements Auth{
 
-    public HttpHeaders makeCredentials(String login, String password){
+    public HttpHeaders makeCredentials(String login, String password) {
         return new HttpHeaders(){{
             String auth = login + ":" + password;
             byte[] encodedAuth = Base64.encodeBase64(
@@ -17,5 +17,4 @@ public class BasicAuth {
             set( "Authorization", authHeader );
         }};
     }
-
 }
