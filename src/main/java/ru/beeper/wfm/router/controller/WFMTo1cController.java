@@ -28,23 +28,20 @@ public class WFMTo1cController {
     @PostMapping("/PlanCreateOrUpdate")
     public ResponseEntity<PlanCreateOrUpdate> planCreateOrUpdate
         (@RequestBody PlanCreateOrUpdate planCreateOrUpdate) {
-        ResponseEntity<PlanCreateOrUpdate> response = service.planCreateOrUpdate(planCreateOrUpdate);
-        return response;
+        return service.planCreateOrUpdate(planCreateOrUpdate);
     };
 
 
     @PostMapping("/PlanDelete")
     public ResponseEntity<PlanDelete> planDelete
         (@RequestBody PlanDelete planDelete) {
-        ResponseEntity<PlanDelete> response = service.planDelete(planDelete);
-        return response;
+        return service.planDelete(planDelete);
     }
 
 
     @PostMapping("/TimeSheetCreateOrUpdate")
     public ResponseEntity<TimeSheetCreateOrUpdate> timeSheetCreateOrUpdate
         (@RequestBody TimeSheetCreateOrUpdate timeSheetCreateOrUpdate) {
-        ResponseEntity<TimeSheetCreateOrUpdate> response = service.timeSheetCreateOrUpdate(timeSheetCreateOrUpdate);
-        return response;
+        return service.timeSheetCreateOrUpdate(timeSheetCreateOrUpdate);
     }
 }
