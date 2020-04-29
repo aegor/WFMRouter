@@ -12,11 +12,17 @@ import org.springframework.http.HttpHeaders;
 import ru.beeper.wfm.router.util.Auth;
 import ru.beeper.wfm.router.util.BasicAuth;
 
+
 @ConfigurationProperties(prefix="zup")
 public class Servers {
 
+      Servers(Wfm wfm){
+            this.wfm = wfm;
+      }
+
       Auth auth = new BasicAuth();
 
+      private Wfm wfm;
       private HashMap<Integer, HashMap<String, String>> serverMap = new HashMap<>();
       private HashMap<Integer, HttpHeaders> credentials = new HashMap<>();
 

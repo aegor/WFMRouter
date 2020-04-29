@@ -1,0 +1,45 @@
+wfm:
+  server:
+# Логин, пароль и адрес инстанса wfm-сервера для отправки запросов к нему
+    login: test
+    password: test
+    wfm-server-address: 127.0.0.1:8090
+# Адрес и порт ДБ influxdb для логирования запросов для дальнейшего анализа в Grafana
+  request-logger:
+    address: 127.0.0.1:8090
+    login: none
+    password: none
+    enabled: false
+
+# Серверы 1c ЗУП
+# Структура int-поля EmployeeSourceId в JSON-запросе, можно менять в конфигурации
+zup:
+  employee-source-id:
+    "[ikZup]": 1
+    "[cacheMgr]": 2
+    "[localUsers]": 3
+    "[teEmployee]": 4
+    "[ktEmployee]": 5
+    "[ktZup]": 6
+  # Массив серверов 1с ЗУП. Маршрутизация происходит на основе анализа поля employee-source-id
+  servers:
+    - url: http://127.0.0.1:8090/zup_kt/hs/wfm1
+      login: wfm
+      password: none
+      employee-source-id: ktZup
+    - url: http://127.0.0.1:8090/zup_ik/hs/wfm1
+      login: wfm
+      password: none
+      employee-source-id: ikZup
+
+spring:
+  application:
+    # Имя инстанса в консоли администратора
+    name: wfm-router
+  # basic - аутентификация для всех входных endpoints (URI) маршрутизатора
+  security:
+    user:
+      name: admin
+      password: admin
+
+

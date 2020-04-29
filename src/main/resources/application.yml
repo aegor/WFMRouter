@@ -4,21 +4,46 @@ server:
 
 debug: true
 
-# 1c ZUP servers
-zup:
-  employee-source-id:
-    "[ikZup]": 1
-    "[cacheMgr]": 2
-    "[localUsers]": 3
-    "[teEmployee]": 4
-    "[ktEmployee]": 5
-    "[ktZup]": 6
-  servers:
-    - url: http://127.0.0.1:8090/zup_kt/hs/wfm1
-      login: wfm
-      password: none
-      employee-source-id: ktZup
-    - url: http://127.0.0.1:8090/zup_ik/hs/wfm1
-      login: wfm
-      password: none
-      employee-source-id: ikZup
+springdoc:
+  api-docs:
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    display-request-duration: true
+    groups-order: DESC
+  version: '@springdoc.version@'
+  show-actuator: true
+
+management:
+  server:
+    port: 8080
+    address: 0.0.0.0
+  endpoints:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: "*"
+      base-path: /manage
+
+
+spring:
+  application:
+    admin:
+      enabled: true
+
+  boot:
+    admin:
+      client:
+        username: ${spring.security.user.name}
+        password: ${spring.security.user.name}
+        url: "http://localhost:8080"
+        instance:
+          metadata:
+            user:
+              name: ${spring.security.user.name}
+              password: ${spring.security.user.name}
+      ui:
+        title: "${spring.appliation.name} Admin"
+
