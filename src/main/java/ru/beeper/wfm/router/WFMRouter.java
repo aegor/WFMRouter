@@ -1,19 +1,16 @@
 package ru.beeper.wfm.router;
 
-import de.codecentric.boot.admin.server.config.EnableAdminServer;
+// import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
-import ru.beeper.wfm.router.configuration.Servers;
 
 @SpringBootApplication
-@EnableAdminServer
+// @EnableAdminServer
 @ConfigurationPropertiesScan("ru.beeper.wfm.router.configuration")
 public class WFMRouter {
 

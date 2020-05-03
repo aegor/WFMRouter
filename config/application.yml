@@ -3,7 +3,9 @@ wfm:
 # Логин, пароль и адрес инстанса wfm-сервера для отправки запросов к нему
     login: test
     password: test
-    wfm-server-address: 127.0.0.1:8090
+    url: http://127.0.0.1:8090
+
+
 # Адрес и порт ДБ influxdb для логирования запросов для дальнейшего анализа в Grafana
   request-logger:
     address: 127.0.0.1:8090
@@ -27,7 +29,7 @@ zup:
       login: wfm
       password: none
       employee-source-id: ktZup
-    - url: http://127.0.0.1:8090/zup_ik/hs/wfm1
+    - url: http://192.168.88.235:8090/zup_ik/hs/wfm1
       login: wfm
       password: none
       employee-source-id: ikZup

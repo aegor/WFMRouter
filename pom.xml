@@ -20,17 +20,17 @@
 
 	<dependencies>
 	        <!-- Сервер админки. В данном случае является частью проекта, но может быть одним на кластер проектов -->
-		<dependency>
+<!--		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-server</artifactId>
 			<version>2.2.2</version>
 		</dependency>
-                <!-- Клиент админки. Необходим для обслуживания сервером админки -->
+                &lt;!&ndash; Клиент админки. Необходим для обслуживания сервером админки &ndash;&gt;
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-client</artifactId>
 			<version>2.2.2</version>
-		</dependency>
+		</dependency>-->
                 <!-- Необходим для поставки мета-информации дя OpenApi -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -65,10 +65,10 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
                 <!-- Базовая security для endpoints -->
-		<dependency>
+<!--		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
+		</dependency>-->
                 <!-- тёплый перезапуск приложения после перекомпиляции класса, много чего хорошего-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -1,7 +1,10 @@
 package ru.beeper.wfm.router.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import ru.beeper.wfm.router.configuration.Servers;
 import ru.beeper.wfm.router.model.onec.PlanCreateOrUpdate;
 import ru.beeper.wfm.router.model.onec.PlanDelete;

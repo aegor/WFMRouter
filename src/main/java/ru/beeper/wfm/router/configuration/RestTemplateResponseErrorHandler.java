@@ -34,7 +34,7 @@ public class RestTemplateResponseErrorHandler
                 .series() == HttpStatus.Series.CLIENT_ERROR) {
             // handle CLIENT_ERROR
             if (httpResponse.getStatusCode() == HttpStatus.NOT_FOUND) {
-                throw new NotFoundException();
+                // throw new NotFoundException();
             }
         }
     }

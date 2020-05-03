@@ -2,7 +2,6 @@ package ru.beeper.wfm.router.util;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
 

@@ -21,7 +21,7 @@ set JAVA_HOME="C:\Program Files\Java\jdk1.8.0_241"
 ```
 Но лучше установить эту переменную глобально, для снятия вопросов с windows service. 
 
-В корневой парке проекта запустить команду:
+В корневой папке проекта запустить команду:
 ```aidl
 mvnw.cmd clean package -DskipTests
 ```

@@ -1,3 +1,4 @@
+# WFM to 1c API
 ### PlanCreateOrUpdate KT
 POST http://localhost:8080/PlanCreateOrUpdate
 Content-Type: application/json
@@ -122,3 +123,62 @@ Content-Type: application/json
     {"TimePinTypeId":"26","Day":30,"Minutes":0,"NightMinutes":0}],
   "OverTime":{"Minutes":0,"NightMinutes":0}
 }
+
+### 1c to WMF API
+#GetRequestFrom1C
+POST http://localhost:8080/GetRequestFrom1C
+Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
+
+{"EmployeeId1C": "b35e5956-891a-11e9-8a2f-00155d76d140",
+  "ActionType": 5,
+  "EventType": 5,
+  "Actual": 1,
+  "Deleted": false,
+  "LastName": "Мардовина",
+  "FirstName": "Анна",
+  "MiddleName": "Алексеевна",
+  "BirthDate": "04.12.1990",
+  "TabId": "8847",
+  "TimeRate": 1,
+  "GroupName": "Группа продаж и клиентского обслуживания №2",
+  "Group_ID_IN": "ПП147",
+  "Title": "Консультант.",
+  "TitleId": "ЦБ0000375",
+  "LocalityName": "Департамент дистанционного обслуживания г. Барнаул",
+  "SiteId": "11",
+  "EmployDate": "07.06.2019",
+  "DismissDate": "",
+  "HomeAddress": "656922, Алтайский край, Барнаул г, Новосиликатный мкр, Новосибирская ул, дом № 26",
+  "Telephone": "79132337848"}
+
+### 1c to WMF API
+#GetRequestFrom1C
+POST http://192.168.88.235:8080/GetRequestFrom1C
+Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
+
+{"EmployeeId1C": "b35e5956-891a-11e9-8a2f-00155d76d140",
+  "ActionType": 5,
+  "EventType": 5,
+  "Actual": 1,
+  "Deleted": false,
+  "LastName": "Мардовина",
+  "FirstName": "Анна",
+  "MiddleName": "Алексеевна",
+  "BirthDate": "04.12.1990",
+  "TabId": "8847",
+  "TimeRate": 1,
+  "GroupName": "Группа продаж и клиентского обслуживания №2",
+  "Group_ID_IN": "ПП147",
+  "Title": "Консультант.",
+  "TitleId": "ЦБ0000375",
+  "LocalityName": "Департамент дистанционного обслуживания г. Барнаул",
+  "SiteId": "11",
+  "EmployDate": "07.06.2019",
+  "DismissDate": "",
+  "HomeAddress": "656922, Алтайский край, Барнаул г, Новосиликатный мкр, Новосибирская ул, дом № 26",
+  "Telephone": "79132337848"}
+
+###
+# GetRequestResultFrom1C
