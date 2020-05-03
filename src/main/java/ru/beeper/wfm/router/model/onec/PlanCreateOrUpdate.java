@@ -5,5 +5,5 @@ import java.util.ArrayList;
 
 public class PlanCreateOrUpdate extends MetaInfo implements Serializable {
 
-    public ArrayList<plan> Plan;
+    public ArrayList<plan> Plan = new ArrayList<> ();
 }

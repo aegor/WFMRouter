@@ -28,7 +28,7 @@ public class From1C {
         this.http = http;
     }
 
-    public ResponseEntity<String> getRequestFrom1C(String json, String reqIpAddr) throws JsonProcessingException {
+    public ResponseEntity<String> getRequestFrom1C(String json, String reqIpAddr, String endpoint) throws JsonProcessingException {
         Wfm wfm = servers.getWfmServer();
         final ObjectNode node = mapper.readValue(json, ObjectNode.class);
         if (node.isEmpty()) return new ResponseEntity("{\"error\": \"Empty JSON\"}", HttpStatus.NOT_FOUND);
@@ -36,6 +36,6 @@ public class From1C {
                 new IntNode(servers.getEmployeeSourceIdByIp(reqIpAddr)));
         HttpEntity<String> request = new HttpEntity<>(mapper.writeValueAsString(node), wfm.getCredentials());
 
-        return http.exchange(wfm.getServer().get("url"), HttpMethod.POST, request, String.class);
+        return http.exchange(wfm.getServer().get("url")+endpoint, HttpMethod.POST, request, String.class);
     }
 }

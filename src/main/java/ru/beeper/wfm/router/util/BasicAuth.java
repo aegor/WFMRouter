@@ -14,6 +14,7 @@ public class BasicAuth implements Auth{
                     auth.getBytes(StandardCharsets.UTF_8) );
             String authHeader = "Basic " + new String( encodedAuth );
             set( "Authorization", authHeader );
+            set("Content-type", "application/json");
         }};
     }
 }

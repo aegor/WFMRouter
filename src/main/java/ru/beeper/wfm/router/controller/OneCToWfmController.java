@@ -22,11 +22,11 @@ public class OneCToWfmController {
 
     @PostMapping("/GetRequestFrom1C")
     public HttpEntity<String> getRequestFrom1C(@RequestBody String json, HttpServletRequest request) throws JsonProcessingException {
-        return service.getRequestFrom1C(json, request.getRemoteAddr());
+        return service.getRequestFrom1C(json, request.getRemoteAddr(), "GetRequestFrom1C");
     }
 
     @PostMapping("/GetRequestResultFrom1C")
     public HttpEntity<String> getRequestResultFrom1C(@RequestBody String json, HttpServletRequest request) throws JsonProcessingException {
-        return service.getRequestFrom1C(json, request.getRemoteAddr());
+        return service.getRequestFrom1C(json, request.getRemoteAddr(), "GetRequestResultFrom1C");
     }
 }

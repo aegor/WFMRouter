@@ -1,0 +1,140 @@
+{
+    "source": "mockoon:1.8.0",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "",
+                "lastMigration": 10,
+                "name": "Demo users API",
+                "endpointPrefix": "",
+                "latency": 0,
+                "port": 8090,
+                "routes": [
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "zup_kt/hs/wfm1/PlanCreateOrUpdate",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "header",
+                                        "modifier": "Content-type",
+                                        "value": "application/json",
+                                        "isRegex": false
+                                    }
+                                ]
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "zup_ik/hs/wfm1/PlanDelete",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": []
+                            }
+                        ],
+                        "enabled": true
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "GetRequestFrom1C",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\"EmployeeId1C\": \"b35e5956-891a-11e9-8a2f-00155d76d140\",\r\n  \"ActionType\": 5,\r\n  \"EventType\": 5,\r\n  \"Actual\": 1,\r\n  \"Deleted\": false,\r\n  \"LastName\": \"Мардовина\",\r\n  \"FirstName\": \"Анна\",\r\n  \"MiddleName\": \"Алексеевна\",\r\n  \"BirthDate\": \"04.12.1990\",\r\n  \"TabId\": \"8847\",\r\n  \"TimeRate\": 1,\r\n  \"GroupName\": \"Группа продаж и клиентского обслуживания №2\",\r\n  \"Group_ID_IN\": \"ПП147\",\r\n  \"Title\": \"Консультант.\",\r\n  \"TitleId\": \"ЦБ0000375\",\r\n  \"LocalityName\": \"Департамент дистанционного обслуживания г. Барнаул\",\r\n  \"SiteId\": \"11\",\r\n  \"EmployDate\": \"07.06.2019\",\r\n  \"DismissDate\": \"\",\r\n  \"HomeAddress\": \"656922, Алтайский край, Барнаул г, Новосиликатный мкр, Новосибирская ул, дом № 26\",\r\n  \"Telephone\": \"79132337848\",\r\n  \"EmployeeSourceId\":1}",
+                                "latency": 0,
+                                "statusCode": "200",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "header",
+                                        "modifier": "Authorization",
+                                        "value": "Basic dGVzdDp0ZXN0",
+                                        "isRegex": false
+                                    }
+                                ]
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{}",
+                                "latency": 0,
+                                "statusCode": "502",
+                                "label": "",
+                                "headers": [
+                                    {
+                                        "key": "",
+                                        "value": ""
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": []
+                            }
+                        ],
+                        "enabled": true
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "https": false,
+                "cors": false,
+                "headers": [],
+                "proxyReqHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ],
+                "proxyResHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ]
+            }
+        }
+    ]
+}

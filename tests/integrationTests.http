@@ -2,6 +2,7 @@
 ### PlanCreateOrUpdate KT
 POST http://localhost:8080/PlanCreateOrUpdate
 Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
 
 {
   "RequestId":239603,
@@ -20,6 +21,7 @@ Content-Type: application/json
 ### PlanCreateOrUpdate IK
 POST http://localhost:8080/PlanCreateOrUpdate
 Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
 
 {
   "RequestId":239603,
@@ -38,6 +40,7 @@ Content-Type: application/json
 ### PlanDelete IK
 POST http://localhost:8080/PlanDelete
 Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
 
 {
   "RequestId":239603,
@@ -50,6 +53,7 @@ Content-Type: application/json
 ### PlanDelete KT
 POST http://localhost:8080/PlanDelete
 Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
 
 {
   "RequestId":239603,
@@ -62,6 +66,7 @@ Content-Type: application/json
 ### TimeSheetCreateOrUpdate KT
 POST http://localhost:8080/TimeSheetCreateOrUpdate
 Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
 
 {
   "RequestId":239603,
@@ -84,6 +89,7 @@ Content-Type: application/json
 ### TimeSheetCreateOrUpdate IK
 POST http://localhost:8080/TimeSheetCreateOrUpdate
 Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
 
 {
   "RequestId":239603,
@@ -105,6 +111,7 @@ Content-Type: application/json
 ### Error request
 POST http://localhost:8080/TimeSheetCreateOrUpdate
 Content-Type: application/json
+Authorization: Basic YWRtaW46YWRtaW4=
 
 {
   "RequestId":239603,
