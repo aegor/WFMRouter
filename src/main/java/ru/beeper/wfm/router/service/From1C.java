@@ -13,10 +13,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.annotation.RequestScope;
 import ru.beeper.wfm.router.configuration.Servers;
 import ru.beeper.wfm.router.configuration.Wfm;
-import ru.beeper.wfm.router.model.onec.PlanCreateOrUpdate;
-
-import java.net.InetAddress;
-import java.net.URL;
 
 @Service
 @RequestScope
