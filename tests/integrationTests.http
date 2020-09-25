@@ -133,7 +133,7 @@ Authorization: Basic YWRtaW46YWRtaW4=
 
 ### 1c to WMF API
 #GetRequestFrom1C
-POST http://localhost:8080/GetRequestFrom1C
+POST http://localhost:8080/wfm_kt/GetRequestFrom1C
 Content-Type: application/json
 Authorization: Basic YWRtaW46YWRtaW4=
 

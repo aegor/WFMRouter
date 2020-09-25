@@ -2,7 +2,9 @@ package ru.beeper.wfm.router.configuration;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import ru.beeper.wfm.router.util.Auth;
 import ru.beeper.wfm.router.util.BasicAuth;
@@ -16,7 +18,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/*
+* Facade for all WFMRouter configuration properties
+* */
 @ConfigurationProperties(prefix="zup")
 public class Servers {
 
@@ -26,6 +30,8 @@ public class Servers {
 
       Auth auth = new BasicAuth();
 
+      @Autowired
+      private Environment e;
       private Wfm wfm;
       private HashMap<Integer, HashMap<String, String>> serverMap = new HashMap<>();
       private HashMap<Integer, HttpHeaders> credentials = new HashMap<>();
@@ -34,16 +40,19 @@ public class Servers {
 
       @Getter @Setter private HashMap<String, Integer> employeeSourceId = new HashMap<>();
 
-      private Map<String, Integer> ipAddMap = new HashMap<>();
+      private Map<String, Integer> ipAddrMap = new HashMap<>();
+      private Map<String, Integer> virtualWfmUrlMap = new HashMap<>();
 
       @PostConstruct private void cachingVerifyingData(){
             // TODO config validation
+            if (servers.isEmpty()) throw new IllegalArgumentException("Bad config file");
             for (HashMap<String, String> s : servers) {
                   int index = employeeSourceId.get(s.get("employee-source-id"));
                   credentials.put(index, auth.makeCredentials(s.get("login"), s.get("password")));
                   serverMap.put(index, s);
                   try {
-                        ipAddMap.put(
+                        virtualWfmUrlMap.put(s.get("backurl"),index);
+                        ipAddrMap.put(
                                 InetAddress.getByName(new URL(s.get("url")).getHost()).getHostAddress(),
                                 index);
                   } catch (UnknownHostException | MalformedURLException e){
@@ -62,8 +71,13 @@ public class Servers {
       }
 
       public int getEmployeeSourceIdByIp(String iP){
-            return ipAddMap.get(iP);
+            return ipAddrMap.get(iP);
       }
+
+      public int getEmployeeSourceIdByUrl(String url){
+            return virtualWfmUrlMap.get(url);
+      }
+
       public Wfm getWfmServer(){
             return this.wfm;
       }

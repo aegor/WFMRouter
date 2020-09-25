@@ -44,12 +44,13 @@ wfm.router-0.0.1-SNAPSHOT.jar
 #### Местоположение файла конфигурации относительно исполняемого файла
 
 - По умолчанию приложение ищет файл конфигурации с названием **application.yml** в папке **config** относительно запускаемого приложения.
-- Возможно явное указание местоположения файла конфигурации с помощью ключа 
-**"--spring.config.name=conf.yml"**
+- Возможно явное указание местоположения файлов конфигурации с помощью ключа 
+**"java -jar wfm.router-0.0.1-SNAPSHOT.jar --spring.config.location=file:./wfm.yml,classpath:/application.yml"**
+Порядок выполнения файлов конфигурации - слева направо
 
 #### Пример запуска WFMRouter
 ```
-java -jar wfm.router-0.0.1-SNAPSHOT.jar --spring.config.name=wfm.yml
+java -jar wfm.router-0.0.1-SNAPSHOT.jar --spring.config.location=file:./wfm.yml,classpath:/application.yml
 ```  
 #### Запуск WFMRouter как windows service
 

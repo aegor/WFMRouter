@@ -25,13 +25,19 @@ zup:
     "[ktZup]": 6
   # Массив серверов 1с ЗУП. Маршрутизация происходит на основе анализа поля employee-source-id
   servers:
+  # URL 1с сервера
     - url: http://127.0.0.1:8090/zup_kt/hs/wfm1
+  # URL "сервера" WFM, которым представляется WFM router при обращении к нему со стороны 1с
+      backurl: wfm_kt
       login: wfm
-      password: none
+      password: 123456789
       employee-source-id: ktZup
+  # URL 1с сервера
     - url: http://192.168.88.235:8090/zup_ik/hs/wfm1
+  # URL "сервера" WFM, которым представляется WFM router при обращении к нему со стороны 1с
+      backurl: wfm_ik
       login: wfm
-      password: none
+      password: 123456789
       employee-source-id: ikZup
 
 spring:
