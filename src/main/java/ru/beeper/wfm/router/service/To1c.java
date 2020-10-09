@@ -44,7 +44,7 @@ public class To1c {
         } else {
             HttpEntity<PlanCreateOrUpdate> request =
                     new HttpEntity<PlanCreateOrUpdate>(obj, servers.getCredentialsByEmployeeSourceId(obj.EmployeeSourceId));
-            return http.exchange(server.get("url") + "/planCreateOrUpdate", HttpMethod.POST, request, PlanCreateOrUpdate.class);
+            return http.exchange(server.get("url") + "/PlanCreateOrUpdate", HttpMethod.POST, request, PlanCreateOrUpdate.class);
         }
     }
 
@@ -54,7 +54,7 @@ public class To1c {
         if (serverConfigVerificator(obj)) {
             HttpEntity<PlanDelete> request =
                     new HttpEntity<PlanDelete>(obj, servers.getCredentialsByEmployeeSourceId(obj.EmployeeSourceId));
-            return http.exchange(server.get("url") + "/planDelete", HttpMethod.POST, request, PlanDelete.class);
+            return http.exchange(server.get("url") + "/PlanDelete", HttpMethod.POST, request, PlanDelete.class);
         }
         else return new ResponseEntity<PlanDelete>(HttpStatus.NOT_FOUND);
     }
@@ -65,7 +65,7 @@ public class To1c {
         if (serverConfigVerificator(obj)) {
             HttpEntity<TimeSheetCreateOrUpdate> request =
                     new HttpEntity<TimeSheetCreateOrUpdate>(obj, servers.getCredentialsByEmployeeSourceId(obj.EmployeeSourceId));
-            return http.exchange(server.get("url") + "/timeSheetCreateOrUpdate", HttpMethod.POST, request, TimeSheetCreateOrUpdate.class);
+            return http.exchange(server.get("url") + "/TimeSheetCreateOrUpdate", HttpMethod.POST, request, TimeSheetCreateOrUpdate.class);
         }
         else return new ResponseEntity<TimeSheetCreateOrUpdate>(HttpStatus.NOT_FOUND);
     }
